@@ -1,0 +1,82 @@
+.MessageContainer {
+    width: 100%;
+    padding: 8px 12px;
+    
+    animation-name: MoveInMessage;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+
+    .MessageMain {
+        display: flex;
+        width: 100%;
+    }
+
+    .Message {
+        max-width: 600px;
+        background-color: white;
+        padding: 8px 12px;
+        border-radius: 12px;
+        box-shadow: 1px 1px 3px 1px #ccc;
+        height: 100%;
+        
+        .MessageHeader {
+            text-transform: capitalize;
+            font-size: 10px;
+            padding-bottom: 8px;
+            color: #666;
+
+            ion-spinner {
+                width: 8px;
+                height: 8px;
+                float: left;
+            }
+        }
+    }
+
+    &.Inbox .MessageMain {
+        justify-content: flex-start;
+    }
+
+    &.Outbox .MessageMain {
+        justify-content: flex-end;
+        text-align: end;
+
+        .Message {
+            background-color: #ebfffb;
+        }
+    }
+
+}
+
+.Avatar img {
+    box-shadow: 1px 1px 3px 1px #ccc;
+}
+
+.AvatarBot {
+    padding-right: 4px;
+    img {
+        background-color: white;
+        padding: 4px;
+    }
+}
+
+.AvatarUser {
+    padding-left: 4px;
+}
+
+.ChipsContainer {
+    padding-top: 8px;
+}
+
+
+@keyframes MoveInMessage {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

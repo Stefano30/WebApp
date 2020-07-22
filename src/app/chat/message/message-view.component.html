@@ -1,0 +1,29 @@
+<div class="MessageContainer {{ isInbox() ? 'Inbox' : 'Outbox' }}">
+  <div class="MessageMain">
+    <div *ngIf="isInbox()" class="Avatar AvatarBot">
+      <ion-avatar>
+        <img src="assets/bot.svg" />
+      </ion-avatar>
+    </div>
+    <div class="Message">
+      <div class="MessageHeader">
+        {{ isInbox() ? "CHATBOT" : "YOU" }}
+        <ion-spinner *ngIf="!isInbox() && isMessageSending()" name="crescent"></ion-spinner>
+      </div>
+
+      <div class="MessageContent">
+        {{ message.text }}
+      </div>
+    </div>
+    <div *ngIf="!isInbox()" class="Avatar AvatarUser">
+      <ion-avatar>
+        <img src="assets/user.svg" />
+      </ion-avatar>
+    </div>
+  </div>
+  <div class="ChipsContainer">
+    <ion-chip *ngFor="let option of message.options">
+      <ion-label color="#263949" (click)="onChipClicked(option)">{{ option }}</ion-label>
+    </ion-chip>
+  </div>
+</div>

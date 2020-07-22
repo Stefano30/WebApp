@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar class="TitleToolbar">
+    <ion-title>Allos Chatbot</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="MainContent" #mainContent>
+
+<app-message *ngFor="let message of messages" [message]="message" (onKeywordClicked)="onKeywordClicked($event)"></app-message>
+
+</ion-content>
+
+<ion-footer translucent="true">
+  <ion-toolbar class="MessageToolbar">
+    <ion-input placeholder="Enter message..." clearInput class="ion-padding-horizontal" [(ngModel)]="newMessage" (keypress)="onKeyPressed($event.keyCode)"></ion-input>
+    <ion-buttons slot="end">
+      <ion-button (click)="onNewMessage()"><ion-icon slot="icon-only" name="send" ></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
